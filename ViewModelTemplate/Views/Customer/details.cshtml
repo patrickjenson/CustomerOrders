@@ -1,0 +1,64 @@
+﻿@model ViewModelTemplate.Models.CustomerOrderDetails
+
+@{
+    ViewBag.Title = "details";
+}
+
+<h2>Order Details</h2>
+
+<div class="container">
+	<div class="col-md-3">
+		<span style="font-weight:bold">Customer:</span><br /><br />
+		@Html.DisplayFor(model => model.customer.CustFirstName)
+		@Html.DisplayFor(model => model.customer.CustLastName)
+		<br />
+		@Html.DisplayFor(model => model.customer.CustStreet)
+		<br />
+		@Html.DisplayFor(model => model.customer.CustCity),
+		@Html.DisplayFor(model => model.customer.CustState)
+		@Html.DisplayFor(model => model.customer.CustZip)
+	</div>
+	<div class="col-md-3">
+		<span style="font-weight:bold">Order:</span><br /><br />
+		@Html.DisplayFor(model => model.OrdNo)<br />
+		@Html.DisplayFor(model => model.OrdDate)
+	</div>
+	<div class="col-md-6">
+		<table>
+			<tr>
+				<th>@Html.DisplayNameFor(model => model.lines[0].ProdNo)</th>
+				<th></th>
+				<th>@Html.DisplayNameFor(model => model.lines[0].ProdName)</th>
+				<th></th>
+				<th>@Html.DisplayNameFor(model => model.lines[0].ProdPrice)</th>
+				<th></th>
+				<th>@Html.DisplayNameFor(model => model.lines[0].Qty)</th>
+			</tr>
+			@foreach (var item in Model.lines) {
+				<tr>
+					<td>
+						@Html.DisplayFor(Modelitem => item.ProdNo)
+					</td>
+					<td></td>
+					<td>
+						@Html.DisplayFor(Modelitem => item.ProdName)
+					</td>
+					<td></td>
+					<td>
+						@Html.DisplayFor(Modelitem => item.ProdPrice)
+					</td>
+					<td></td>
+					<td>
+						@Html.DisplayFor(Modelitem => item.Qty)
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+
+</div>
+<p>
+	<br />
+	@*@Html.ActionLink("Back to Orders", "orders")*@
+</p>
+
