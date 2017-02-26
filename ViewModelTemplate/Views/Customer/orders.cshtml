@@ -39,6 +39,9 @@
                     <td>
                         @Html.DisplayFor(Modelitem => item.OrdName)
                     </td>
+					<td>
+						@Html.ActionLink("View Details", "details", new { cid = item.CustNo, oid= item.OrdNo })
+					</td>
                 </tr>
             }
         </table>
